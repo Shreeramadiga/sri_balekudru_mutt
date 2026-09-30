@@ -3,9 +3,9 @@
 /* ---------- Data ---------- */
 
 const IMAGES = {
-  k: "karala-narasimha.jpg",
-  l: "lakshmi-narasimha.jpg",
-  s: "sharada-daaru-bimba.jpg"
+  k: "./karala-narasimha.jpg",
+  l: "./lakshmi-narasimha.jpg",
+  s: "./sharada-daaru-bimba.jpg"
 };
 
 // [name, description, image key (optional)]

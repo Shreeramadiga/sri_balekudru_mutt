@@ -1,0 +1,370 @@
+/* Shri Balekudru Mutt - stylesheet
+   Colours are custom properties in :root; a dark variant is provided
+   for prefers-color-scheme and data-theme="dark". */
+
+:root {
+  --bg: #fdf3dc;
+  --card: #fffaf0;
+  --ink: #3a1a12;
+  --mute: #7a5a4a;
+  --mar: #7a1e12;
+  --saf: #e6821e;
+  --gold: #c98a1b;
+  --line: #e2c88f;
+  --h: #7a1e12;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top,0px);
+  padding-bottom: env(safe-area-inset-bottom,0px);
+}
+
+@media (prefers-color-scheme:dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1c100c;
+    --card: #2a1913;
+    --ink: #f6e6c8;
+    --mute: #c9ad8a;
+    --line: #4a3024;
+    --h: #e8b04a;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #1c100c;
+  --card: #2a1913;
+  --ink: #f6e6c8;
+  --mute: #c9ad8a;
+  --line: #4a3024;
+  --h: #e8b04a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top,0px);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Noto Sans Kannada',system-ui,sans-serif;
+  line-height: 1.85;
+}
+
+h1,h2,h3 {
+  font-family: 'Noto Serif Kannada',serif;
+  color: var(--h);
+  line-height: 1.4;
+  margin: .4em 0;
+}
+
+a {
+  color: inherit;
+}
+
+.top {
+  background: #4d1108;
+  color: #ffe9b0;
+  font-size: .85rem;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 4px 0;
+}
+
+.top span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: mq 40s linear infinite;
+}
+
+@keyframes mq {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.head {
+  background: linear-gradient(#fff3d0,#f5d998);
+  border-bottom: 4px double var(--mar);
+  text-align: center;
+}
+
+.head .in {
+  max-width: 1150px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+}
+
+.head .logo {
+  width: 96px;
+  height: 96px;
+  flex: none;
+}
+
+.head h1 {
+  color: var(--mar);
+  font-size: clamp(1.5rem,4.5vw,2.8rem);
+  font-weight: 900;
+  margin: 0;
+}
+
+.head p {
+  margin: 0;
+  color: #5a2a10;
+}
+
+nav {
+  background: linear-gradient(#f08a1c,#c9600d);
+  position: sticky;
+  top: env(safe-area-inset-top,0px);
+  z-index: 20;
+  box-shadow: 0 2px 6px #0004;
+}
+
+nav ul {
+  list-style: none;
+  margin: auto;
+  padding: 0 8px;
+  max-width: 1150px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav li {
+  position: relative;
+}
+
+nav li>a {
+  display: block;
+  padding: 9px 16px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav li>a:hover,nav li>a.on {
+  background: var(--mar);
+}
+
+nav li ul {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 190px;
+  background: var(--mar);
+  padding: 0;
+  flex-direction: column;
+}
+
+nav li:hover>ul,nav li:focus-within>ul {
+  display: flex;
+}
+
+nav li ul a {
+  color: #fff!important;
+  text-decoration: none;
+  padding: 8px 14px;
+  font-weight: 400;
+  border-top: 1px solid #ffffff22;
+}
+
+.card {
+  align-self: start;
+}
+
+.card img {
+  height: auto!important;
+  max-height: 520px;
+  object-fit: contain;
+  background: #1c100c;
+}
+
+.hb {
+  display: block;
+  width: 100%;
+  height: min(56vw,520px);
+  object-fit: cover;
+  object-position: center top;
+}
+
+main {
+  max-width: 1150px;
+  margin: auto;
+  padding: 24px 16px;
+}
+
+.page {
+  display: none;
+}
+
+.page.on {
+  display: block;
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+.box {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--saf);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+}
+
+.box h3 {
+  border-bottom: 1px dashed var(--gold);
+  padding-bottom: 4px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--mar);
+  color: #ffe9b0;
+  padding: 6px 18px;
+  border-radius: 4px;
+  text-decoration: none;
+  border: 1px solid var(--gold);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(230px,1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  cursor: zoom-in;
+}
+
+.card div {
+  padding: 10px 14px;
+}
+
+.card h3 {
+  margin: 0;
+}
+
+.card small,.date {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.toc a {
+  border: 1px solid var(--gold);
+  padding: 2px 12px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-size: .9rem;
+}
+
+.sh {
+  font-family: 'Noto Serif Kannada',serif;
+  text-align: center;
+  color: var(--mar);
+  font-size: 1.1rem;
+  margin: 0 0 6px;
+}
+
+.src {
+  font-size: .85rem;
+  color: var(--mute);
+  border-top: 1px dashed var(--gold);
+  margin-top: 16px;
+  padding-top: 6px;
+}
+
+.lb {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #000d;
+  z-index: 99;
+  align-items: center;
+  justify-content: center;
+}
+
+.lb.on {
+  display: flex;
+}
+
+.lb img {
+  max-width: 94%;
+  max-height: 92%;
+}
+
+footer {
+  background: #4d1108;
+  color: #ffe9b0;
+  border-top: 4px solid var(--gold);
+}
+
+footer .f {
+  max-width: 1150px;
+  margin: auto;
+  padding: 20px 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 16px;
+}
+
+footer h3 {
+  color: #f6c453;
+  margin: 0;
+}
+
+footer a {
+  display: block;
+  text-decoration: none;
+}
+
+footer .c {
+  text-align: center;
+  background: #2f0904;
+  padding: 8px;
+  font-size: .85rem;
+}
+
+@media (max-width:800px) {
+  .cols {
+    grid-template-columns: 1fr;
+  }
+  .head .logo {
+    width: 60px;
+    height: 60px;
+  }
+  nav li ul {
+    position: static;
+  }
+}
+
